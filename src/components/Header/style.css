@@ -1,0 +1,22 @@
+
+.header {
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    text-decoration: underline;
+    color: #063353;
+    margin-bottom: 50px;
+    background-color: black;
+  }
+
+  .lead {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+.p {
+  background-color: orangered;
+  color: white;
+  border: 2px solid gray;
+  padding: 10px;
+}
+
