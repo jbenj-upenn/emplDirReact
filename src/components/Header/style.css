@@ -1,16 +1,12 @@
-
 .header {
     width: 100%;
     text-align: center;
     font-size: 3rem;
     text-decoration: underline;
-    color: #063353;
+    color: #d5dce0;
     margin-bottom: 50px;
-    background-color: black;
-  }
-
-  .lead {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(18, 14, 224);
+    padding: 2%;
   }
 
 .p {

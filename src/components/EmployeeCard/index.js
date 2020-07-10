@@ -16,28 +16,26 @@ const empTable = (props) => {
       <tbody>
         <tr>
           <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <td>Mark Otto</td>
+          <td>1234567899</td>
+          <td>mark@mdo.com</td>
+          <td>1/2/78</td>
         </tr>
         <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
+          <th scope="row">1</th>
+          <td>Susan Sharpe</td>
+          <td>1234567799</td>
+          <td>susan@mdo.com</td>
+          <td>8/4/76</td>
         </tr>
         <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
+          <th scope="row">1</th>
+          <td>Feliz Negron</td>
+          <td>1234562781</td>
+          <td>feliz@mdo.com</td>
+          <td>5/15/78</td>
         </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
+
       </tbody>
     </Table>
   );

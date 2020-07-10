@@ -1,5 +1,6 @@
 import React from 'react';
 import { Jumbotron } from 'reactstrap';
+import SearchForm from '../SearchForm';
 import "./style.css";
 
 const Header = (props) => {
@@ -10,9 +11,7 @@ const Header = (props) => {
         <p className="lead">Keep track of your company's employees here.</p>
         <hr className="my-2" />
         <p className="p">Search and filter by category below.</p>
-        {/* <p className="lead">
-          <Button color="primary">Learn More</Button>
-        </p> */}
+        <SearchForm />
       </Jumbotron>
     </div>
   );
