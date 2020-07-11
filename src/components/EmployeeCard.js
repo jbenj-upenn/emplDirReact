@@ -12,7 +12,7 @@ import Moment from 'react-moment';
 class EmployeeCard extends Component {
   state = {
     search: "",
-    results: [{}]
+    results: []
   };
 
   // When this component mounts, search the random user API 
@@ -23,8 +23,8 @@ class EmployeeCard extends Component {
     searchEmps = query => {
       API.getEmps()
         .then(res => {
-          console.log(res)
-          this.setState({ results: res.data });
+          console.log(res.data.results)
+          this.setState({ results: res.data.results });
           console.log(this.state.results);
         })
         .catch(err => console.log(err));
@@ -39,6 +39,7 @@ class EmployeeCard extends Component {
     // const { name, value } = event.target;
     const name = event.target.name
     const value = event.target.value;
+    // console.log(value);
     this.setState({
       [name]: value
     });
@@ -54,30 +55,30 @@ class EmployeeCard extends Component {
     return (
       <Container>
         <Row>
-           <Col size="md-4">
+          <Col size="md-8">
+            <Card
+              heading={"heading"}
+            >
+              {this.state.results.length ? (
+                <EmpDetail
+                  name={ this.state.results[0].name.first + " " + this.state.results[0].name.last }
+                  phone={this.state.results[0].phone}
+                  email={this.state.results[0].email}
+                  dob={this.state.results[0].dob.date}
+                  picture={this.state.results[0].picture.thumbnail}
+                />
+              ) : (
+                  <h3>No Employees by this Name</h3>
+                )}
+            </Card>
+          </Col>
+          <Col size="md-4">
             <Card heading="Search">
               <SearchForm
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
               />
-            </Card>
-          </Col>
-          <Col size="md-8">
-            <Card
-              heading={this.state.results.name || "Search for an Employee to Begin"}
-            >
-              {this.state.results.name ? (
-                <EmpDetail
-                  name={this.state.results.name}
-                  phone={this.state.results.phone}
-                  email={this.state.results.email}
-                  dob={this.state.results.dob}
-                  picture={this.state.results.picture.medium}
-                />
-              ) : (
-                  <h3>No Employees by this Name</h3>
-                )}
             </Card>
           </Col>
         </Row>

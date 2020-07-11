@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import EmployeeCard from './components/EmployeeCard';
 import Header from './components/Header';
-import EmpDetail from './components/EmpDetail';
+// import EmpDetail from './components/EmpDetail';
 // import SearchForm from './components/SearchForm';
 // import SearchResults from './components/SearchResults';
 
@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <Header />
       <EmployeeCard />
-      <EmpDetail />
+      {/* <EmpDetail /> */}
       {/* <SearchForm /> */}
       
       {/* <Search Results /> */}
