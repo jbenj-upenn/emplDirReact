@@ -16,8 +16,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <EmpDetail />
       <EmployeeCard />
+      <EmpDetail />
+      {/* <SearchForm /> */}
+      
       {/* <Search Results /> */}
       
     </div>

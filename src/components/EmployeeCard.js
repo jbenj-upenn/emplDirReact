@@ -36,14 +36,15 @@ class EmployeeCard extends Component {
   }
 
   handleInputChange = event => {
-    const { name, value } = event.target;
-    // const value = event.target.value;
+    // const { name, value } = event.target;
+    const name = event.target.name
+    const value = event.target.value;
     this.setState({
       [name]: value
     });
   };
 
-  // When the form is submitted, search the randomuser API for `this.state.search`
+  // When the form is submitted, search the random user API for `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchEmps(this.state.search);
@@ -53,6 +54,15 @@ class EmployeeCard extends Component {
     return (
       <Container>
         <Row>
+           <Col size="md-4">
+            <Card heading="Search">
+              <SearchForm
+                value={this.state.search}
+                handleInputChange={this.handleInputChange}
+                handleFormSubmit={this.handleFormSubmit}
+              />
+            </Card>
+          </Col>
           <Col size="md-8">
             <Card
               heading={this.state.results.name || "Search for an Employee to Begin"}
@@ -63,20 +73,11 @@ class EmployeeCard extends Component {
                   phone={this.state.results.phone}
                   email={this.state.results.email}
                   dob={this.state.results.dob}
-                  picture={this.state.results.medium}
+                  picture={this.state.results.picture.medium}
                 />
               ) : (
                   <h3>No Employees by this Name</h3>
                 )}
-            </Card>
-          </Col>
-          <Col size="md-4">
-            <Card heading="Search">
-              <SearchForm
-                value={this.state.search}
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-              />
             </Card>
           </Col>
         </Row>
