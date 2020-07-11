@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import EmployeeCard from './components/EmployeeCard';
 import Header from './components/Header';
-import SearchForm from './components/SearchForm';
+import EmpDetail from './components/EmpDetail';
+// import SearchForm from './components/SearchForm';
 // import SearchResults from './components/SearchResults';
 
 // class SearchForm extends Component {
@@ -15,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchForm />
+      <EmpDetail />
       <EmployeeCard />
       {/* <Search Results /> */}
       
