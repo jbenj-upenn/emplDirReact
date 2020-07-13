@@ -8,7 +8,7 @@ A homework assignment meant to run through an array of random users (via randomu
 
 I was unable to make this app work and am open to suggestions/direct instruction. 
 
-### utilities and/or languages
+### Utilities and/or languages
 
 ReactJS
 
@@ -20,7 +20,7 @@ Anthony Briglia, who helped me get the API request(s) to show up in the UI.
 
 ![shot1](https://user-images.githubusercontent.com/59940368/87269323-da052780-c49a-11ea-8587-373becc9e4e0.png)
 
-### note the lack of congruence between the search request and result
+### Note the lack of congruence between the search request and result
 ![nonfunctionalshot1](https://user-images.githubusercontent.com/59940368/87269327-dd001800-c49a-11ea-8fcc-7cbd75796b32.png)
 
 ### Collaboration
