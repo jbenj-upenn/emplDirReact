@@ -7,39 +7,43 @@ import Card from "./Card";
 import EmpDetail from './EmpDetail';
 import SearchForm from "./SearchForm";
 import API from "../utils/api";
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 
 class EmployeeCard extends Component {
   state = {
     search: "",
-    results: []
-  };
+    results: [],
+    sort: true,
+    filteredSearch: []
+};
 
   // When this component mounts, search the random user API 
   componentDidMount() {
     this.searchEmps();
   }
 
-    searchEmps = query => {
-      API.getEmps()
-        .then(res => {
-          console.log(res.data.results)
-          this.setState({ results: res.data.results });
-          console.log(this.state.results);
-        })
-        .catch(err => console.log(err));
-    }
-
-  formatDOB = dob => {
-    const empDOB = Moment(dob).format("LL");
-    return empDOB;
+  searchEmps = query => {
+    API.getEmps()
+      .then(res => {
+        console.log(res.data.results)
+        this.setState({ results: res.data.results });
+        console.log(this.state.results);
+      })
+      .catch(err => console.log(err));
   }
+
+  //======UNABLE TO INCORPORATE MOMENT SO THAT ONLY THE BIRTH YEAR SHOWS
+  // formatDOB = dob => {
+  //   const empDOB = Moment(dob).format("LL");
+  //   return empDOB;
+  // }
 
   handleInputChange = event => {
     // const { name, value } = event.target;
     const name = event.target.name
+    //=======FIGURE HOW TO HAVE SEARCH LOOK FOR THE VALUE
     const value = event.target.value;
-    // console.log(value);
+    console.log(value);
     this.setState({
       [name]: value
     });
@@ -48,24 +52,38 @@ class EmployeeCard extends Component {
   // When the form is submitted, search the random user API for `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
-    this.searchEmps(this.state.search);
+    this.searchEmps(this.state);
   };
 
+  //=======FIGURE OUT A FILTERED SEARCH
+  //   filteredSearch = () => {
+  //     let { search, results } = this.state;
+  //     let filteredResult = results.filter(value => {
+  //         return (
+  //             value.name.first.toLowerCase().includes(search.toLowerCase()) ||
+  //             value.name.last.toLowerCase().includes(search.toLowerCase()) ||
+  //             value.email.toLowerCase().includes(search.toLowerCase())
+  //         );
+  //     });
+  //     this.setState({ filteredResult });
+  // };
+
   render() {
+
     return (
       <Container>
         <Row>
           <Col size="md-8">
             <Card
-              heading={"heading"}
+              heading={"Employee Results"}
             >
               {this.state.results.length ? (
                 <EmpDetail
-                  name={ this.state.results[0].name.first + " " + this.state.results[0].name.last }
+                  name={this.state.results[0].name.first + " " + this.state.results[0].name.last}
                   phone={this.state.results[0].phone}
                   email={this.state.results[0].email}
                   dob={this.state.results[0].dob.date}
-                  picture={this.state.results[0].picture.thumbnail}
+                  picture={this.state.results[0].picture.large}
                 />
               ) : (
                   <h3>No Employees by this Name</h3>
