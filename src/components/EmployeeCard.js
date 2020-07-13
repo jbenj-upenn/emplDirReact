@@ -12,10 +12,8 @@ import API from "../utils/api";
 class EmployeeCard extends Component {
   state = {
     search: "",
-    results: [],
-    sort: true,
-    filteredSearch: []
-};
+    results: []
+  };
 
   // When this component mounts, search the random user API 
   componentDidMount() {
@@ -52,21 +50,20 @@ class EmployeeCard extends Component {
   // When the form is submitted, search the random user API for `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
-    this.searchEmps(this.state);
+    this.searchEmps(this.state.search);
   };
 
-  //=======FIGURE OUT A FILTERED SEARCH
-  //   filteredSearch = () => {
-  //     let { search, results } = this.state;
-  //     let filteredResult = results.filter(value => {
-  //         return (
-  //             value.name.first.toLowerCase().includes(search.toLowerCase()) ||
-  //             value.name.last.toLowerCase().includes(search.toLowerCase()) ||
-  //             value.email.toLowerCase().includes(search.toLowerCase())
-  //         );
-  //     });
-  //     this.setState({ filteredResult });
-  // };
+//   filteredSearch = () => {
+//     let { search, employees } = this.state;
+//     let filteredResult = employees.filter(value => {
+//         return (
+//             value.name.first.toLowerCase().includes(search.toLowerCase()) ||
+//             value.name.last.toLowerCase().includes(search.toLowerCase()) ||
+//             value.email.toLowerCase().includes(search.toLowerCase())
+//         );
+//     });
+//     this.setState({ filteredResult });
+// };
 
   render() {
 
